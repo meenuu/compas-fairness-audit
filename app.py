@@ -122,10 +122,10 @@ def train_models(df_model, FEATURES):
     race = df_model["race"].values
 
     X_train, X_test, y_train, y_test, r_train, r_test = train_test_split(
-    X, y, pd.Series(race), test_size=0.2, random_state=42, stratify=y
-)
-r_train = r_train.values
-r_test  = r_test.values
+    X, y, pd.Series(race), test_size=0.2, random_state=42, stratify=y)
+    
+    r_train = r_train.values
+    r_test  = r_test.values
 
     scaler = StandardScaler()
     X_train_sc = scaler.fit_transform(X_train)
