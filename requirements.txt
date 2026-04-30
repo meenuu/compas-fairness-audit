@@ -1,7 +1,8 @@
-streamlit
-scikit-learn
-pandas
-numpy
-matplotlib
-shap
-fairlearn
+streamlit==1.45.0
+scikit-learn==1.6.1
+pandas==2.2.3
+numpy==1.26.4
+matplotlib==3.9.2
+shap==0.46.0
+fairlearn==0.11.0
+scipy==1.13.1
