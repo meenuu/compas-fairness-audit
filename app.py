@@ -481,8 +481,8 @@ elif page == "Explainability (SHAP)":
     else:
         with st.spinner("Computing SHAP values (this takes ~30 seconds on first load)..."):
             @st.cache_resource
-            def get_shap(rf, X_test):
-                explainer  = shap.TreeExplainer(rf)
+            def get_shap(_rf, X_test):
+                explainer  = shap.TreeExplainer(_rf)
                 sv         = explainer.shap_values(X_test)
                 if isinstance(sv, list):
                     sv = sv[1]
