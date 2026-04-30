@@ -310,7 +310,7 @@ if page == "Overview & Fairness":
         return "background-color: #D1FAE5; color: #065F46"
 
     st.dataframe(
-        fairness_df.style.applymap(color_fpr, subset=["FPR"]).format({
+        fairness_df.style.map(color_fpr, subset=["FPR"]).format({
             "FPR": "{:.1%}", "FNR": "{:.1%}",
             "Accuracy": "{:.1%}", "Base Rate": "{:.1%}"
         }),
