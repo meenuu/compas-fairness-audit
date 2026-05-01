@@ -598,15 +598,15 @@ elif page == "Remediation":
 
     with st.spinner("Training fair model..."):
         @st.cache_resource
-        def get_fair_model(_rf, X_train, y_train, r_train, X_test, r_test):
+        def get_fair_model(_rf, _X_train, _y_train, _r_train, _X_test, _r_test):
             optimizer = ThresholdOptimizer(
                 estimator      = _rf,
                 constraints    = "equalized_odds",
                 predict_method = "predict_proba",
                 objective      = "balanced_accuracy_score",
             )
-            optimizer.fit(X_train, y_train, sensitive_features=r_train)
-            y_fair = optimizer.predict(X_test, sensitive_features=r_test)
+            optimizer.fit(_X_train, _y_train, sensitive_features=_r_train)
+            y_fair = optimizer.predict(_X_test, sensitive_features=_r_test)
             return optimizer, y_fair
 
         optimizer, y_pred_fair = get_fair_model(rf, X_train, y_train, r_train, X_test, r_test)
