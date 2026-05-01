@@ -672,15 +672,15 @@ elif page == "Remediation":
 
     with st.spinner("Building Pareto curve..."):
         @st.cache_data
-        def build_pareto(y_proba, y_test_arr, r_test):
+        def build_pareto(_y_proba, _y_test_arr, _r_test):
             thresholds = np.linspace(0.1, 0.9, 30)
             accs, gaps = [], []
             for t in thresholds:
-                yp = (y_proba >= t).astype(int)
-                accs.append(accuracy_score(y_test_arr, yp))
+                yp = (_y_proba >= t).astype(int)
+                accs.append(accuracy_score(_y_test_arr, yp))
                 try:
                     gaps.append(equalized_odds_difference(
-                        y_test_arr, yp, sensitive_features=r_test))
+                        _y_test_arr, yp, sensitive_features=_r_test))
                 except Exception:
                     gaps.append(np.nan)
             return thresholds, accs, gaps
