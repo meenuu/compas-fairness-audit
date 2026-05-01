@@ -1,6 +1,6 @@
 # COMPAS Algorithmic Fairness Audit
 
-**Live demo:** (https://compas-fairness-audit-yzrxpmq4srgv7hntxsny7k.streamlit.app/)
+**Live demo:** https://compas-fairness-audit-yzrxpmq4srgv7hntxsny7k.streamlit.app/
 
 ## What this project does
 
